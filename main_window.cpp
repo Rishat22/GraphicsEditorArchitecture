@@ -37,7 +37,9 @@ void MainWindow::doActions(const int actionId)
 					throw std::invalid_argument( "Negative value" );
 				}
 				m_graphicsView.resize(new_width, new_height);
+				break;
 			}
+			default : throw std::invalid_argument( "Negative value" ); break;
 		}
 	}
 	catch (...)
