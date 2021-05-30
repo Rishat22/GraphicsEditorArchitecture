@@ -9,8 +9,12 @@ endif()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+
 set(project_sources
     main.cpp
+    main_window.cpp
+    graphics_view.cpp
+    rect.cpp
     )
 
 add_executable(JustArchitectureOfGraphicsEditor ${project_sources} )
@@ -24,6 +28,9 @@ else ()
         -Wall -Wextra -pedantic -Werror
     )
 endif()
+
+find_package(Threads REQUIRED)
+target_link_libraries(JustArchitectureOfGraphicsEditor PRIVATE Threads::Threads)
 
 install(TARGETS JustArchitectureOfGraphicsEditor RUNTIME DESTINATION bin)
 
