@@ -10,9 +10,8 @@ void MainWindow::show()
 	while (true)
 	{
 		printActions();
-		int actionId;
-		std::cin >> actionId;
-		doActions(static_cast<int>(actionId));
+		const auto actionId = selectAction();
+		doAction(actionId);
 	}
 }
 
@@ -22,7 +21,14 @@ void MainWindow::printActions()
 	std::cout << "1 - Change size" << std::endl;
 }
 
-void MainWindow::doActions(const int actionId)
+int MainWindow::selectAction()
+{
+	int actionId;
+	std::cin >> actionId;
+	return actionId;
+}
+
+void MainWindow::doAction(const int actionId)
 {
 	try {
 		switch (actionId)

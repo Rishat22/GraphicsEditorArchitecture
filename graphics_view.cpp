@@ -1,14 +1,13 @@
 #include "graphics_view.h"
 #include <thread>
 
-const unsigned int FREQ_OF_GRAPHICS_UPDATE_TIME = 60;
-
 GraphicsView::GraphicsView()
 {
-	timerStart(FREQ_OF_GRAPHICS_UPDATE_TIME);
+	const ushort time_freq_update = 60;
+	timerStart(time_freq_update);
 }
 
-void GraphicsView::timerStart(unsigned int interval)
+void GraphicsView::timerStart(const ushort interval)
 {
 	std::thread([this, interval]()
 	{

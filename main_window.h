@@ -8,7 +8,8 @@ public:
     MainWindow();
     void show();
     void printActions();
-    void doActions(const int actionId);
+    int selectAction();
+    void doAction(const int actionId);
 private:
     void resizeGraphicsView();
 private:

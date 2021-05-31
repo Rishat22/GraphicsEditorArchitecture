@@ -14,7 +14,7 @@ public:
     Rect graphicsRect() const;
     virtual void resize(const ushort width, const ushort height);
 private:
-    void timerStart(unsigned int interval);
+    void timerStart(const ushort interval);
     virtual void drawItems();
 private:
     Rect m_graphicsRect;
