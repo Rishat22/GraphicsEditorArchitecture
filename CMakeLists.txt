@@ -14,6 +14,8 @@ set(project_sources
     main.cpp
     main_window.cpp
     graphics_view.cpp
+    graphics_item.cpp
+    color.cpp
     rect.cpp
     )
 

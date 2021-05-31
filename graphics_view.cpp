@@ -22,8 +22,10 @@ void GraphicsView::timerStart(unsigned int interval)
 
 void GraphicsView::drawItems()
 {
-//	std::cout << "draw Items" << std::endl;
-//	std::cout << m_graphicsRect.width() << " " << m_graphicsRect.height() << std::endl;
+	for(const auto& item : m_items)
+	{
+		item->paint();
+	}
 }
 
 ushort GraphicsView::width() const

@@ -10,6 +10,8 @@ public:
     void printActions();
     void doActions(const int actionId);
 private:
+    void resizeGraphicsView();
+private:
     GraphicsView m_graphicsView;
 };
 

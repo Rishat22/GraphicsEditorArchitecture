@@ -29,25 +29,30 @@ void MainWindow::doActions(const int actionId)
 		{
 			case 1 :
 			{
-				std::cout << "Set a new size for Widget: ";
-				ushort new_width, new_height = 0;
-				std::cin >> new_width >> new_height;
-				if(!std::cin.good())
-				{
-					throw std::invalid_argument( "Negative value" );
-				}
-				m_graphicsView.resize(new_width, new_height);
+				resizeGraphicsView();
 				break;
 			}
-			default : throw std::invalid_argument( "Negative value" ); break;
+			default : throw std::invalid_argument( "Bad input data" ); break;
 		}
 	}
-	catch (...)
+	catch (const std::exception& exception)
 	{
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "Bad input data!" << std::endl;
+		std::cout << exception.what() << std::endl;
 	}
+}
+
+void MainWindow::resizeGraphicsView()
+{
+	std::cout << "Set a new size for Widget: ";
+	ushort new_width, new_height = 0;
+	std::cin >> new_width >> new_height;
+	if(!std::cin.good())
+	{
+		throw std::invalid_argument( "Bad input data" );
+	}
+	m_graphicsView.resize(new_width, new_height);
 }
 
 

@@ -1,9 +1,9 @@
 #ifndef GRAPHICSVIEW_H
 #define GRAPHICSVIEW_H
 #include <vector>
+#include <memory>
 #include "rect.h"
-
-//class IItem;
+#include "graphics_item.h"
 
 class GraphicsView
 {
@@ -18,7 +18,7 @@ private:
     virtual void drawItems();
 private:
     Rect m_graphicsRect;
-//    std::vector<IItem> m_items;
+    std::vector<std::shared_ptr<GraphicsItem>> m_items;
 };
 
 #endif // GRAPHICSVIEW_H
