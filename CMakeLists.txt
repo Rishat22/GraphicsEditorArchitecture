@@ -13,13 +13,25 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(project_sources
     main.cpp
     main_window.cpp
+    graphics_editor_controller.cpp
+    graphics_editor_model.cpp
     graphics_view.cpp
-    graphics_item.cpp
+    GraphicsShapes/graphics_shape.cpp
+    GraphicsShapes/dot.cpp
+    GraphicsShapes/circle.cpp
+    GraphicsShapes/rectangle.cpp
+    rect.cpp
+    #    tablemodel.cpp
+    file_handling_visitor.cpp
     color.cpp
     rect.cpp
     )
 
 add_executable(JustArchitectureOfGraphicsEditor ${project_sources} )
+
+target_include_directories(JustArchitectureOfGraphicsEditor
+    PUBLIC "${CMAKE_BINARY_DIR}"
+)
 
 if (MSVC)
     target_compile_options(JustArchitectureOfGraphicsEditor PRIVATE

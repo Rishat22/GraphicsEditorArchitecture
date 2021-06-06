@@ -21,9 +21,9 @@ void GraphicsView::timerStart(const ushort interval)
 
 void GraphicsView::drawItems()
 {
-	for(const auto& item : m_items)
+	for(const auto& shape : m_shapes)
 	{
-		item->paint();
+		shape->draw();
 	}
 }
 
