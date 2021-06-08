@@ -20,9 +20,8 @@ set(project_sources
     GraphicsShapes/dot.cpp
     GraphicsShapes/circle.cpp
     GraphicsShapes/rectangle.cpp
-    rect.cpp
-    #    tablemodel.cpp
-    file_handling_visitor.cpp
+    Data/document.cpp
+    Data/file_handling_visitor.cpp
     color.cpp
     rect.cpp
     )
