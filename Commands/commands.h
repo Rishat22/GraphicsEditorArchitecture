@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 #include <string>
-#include "document.h"
+#include "../Data/document.h"
 
 class ICommand {
 public:
@@ -11,33 +11,8 @@ public:
     virtual ~ICommand() = default;
 };
 
-class FileCommand : public ICommand {
-public:
-    virtual ~FileCommand() = default;
-protected:
-    FileCommand(Document* d);
-protected:
-    Document* document;
-};
-
-class LoadFileCommand : public FileCommand {
-public:
-    LoadFileCommand(Document* d, const std::string& fname);
-
-    void execute() override;
-private:
-    std::string m_fname;
-};
-
-class SaveAsCommand : public FileCommand {
-public:
-    SaveAsCommand(Document* d, const std::string& fname);
-    void execute() override;
-private:
-    std::string m_fname;
-};
-
-class Commands : public ICommand {
+class Commands : public ICommand
+{
 public:
     Commands() = default;
     ~Commands() = default;
