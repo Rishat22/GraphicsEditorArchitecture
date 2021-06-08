@@ -7,13 +7,9 @@ class MainWindow
 public:
     MainWindow();
     void show();
-    void printActions();
-    int selectAction();
-    void doAction(const int actionId);
+	void doSomeCommands();
 private:
-    void resizeGraphicsView();
-private:
-    GraphicsView m_graphicsView;
+	GraphicsView m_graphicsView;
 };
 
 #endif // GUIAPPLICATIONS_H
