@@ -20,7 +20,6 @@ set(project_sources
     GraphicsShapes/dot.cpp
     GraphicsShapes/circle.cpp
     GraphicsShapes/rectangle.cpp
-    Data/document.cpp
     Data/file_handling_visitor.cpp
     Commands/commands.cpp
     Commands/file_command.cpp
