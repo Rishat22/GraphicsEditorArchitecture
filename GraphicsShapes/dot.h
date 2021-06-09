@@ -7,7 +7,9 @@ class Dot : public GraphicsShape
 public:
     Dot() = default;
     virtual ~Dot() = default;
-	void draw() override;
+	void draw() const override;
+	void load(Visitor* visitor) const override;
+	void save(Visitor* visitor) const override;
 private:
 };
 

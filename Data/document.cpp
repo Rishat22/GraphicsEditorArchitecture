@@ -1,5 +1,5 @@
 #include "document.h"
-
+/* ToDo delete this class */
 void Document::load(const std::string& text)
 {
 	/* ToDo add loading shapes */

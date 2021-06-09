@@ -7,7 +7,9 @@ class Circle : public GraphicsShape
 public:
     Circle() = default;
     virtual ~Circle() = default;
-	void draw() override;
+	void draw() const override;
+	void load(Visitor* visitor) const override;
+	void save(Visitor* visitor) const override;
 private:
 };
 

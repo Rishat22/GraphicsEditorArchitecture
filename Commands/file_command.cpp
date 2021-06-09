@@ -1,12 +1,12 @@
 #include "file_command.h"
 
 
-FileCommand::FileCommand(Document* d)
-	: m_document(d)
+FileCommand::FileCommand(FileHandlingVisitor* d)
+	: m_fileHandling(d)
 {
 }
 
-LoadFileCommand::LoadFileCommand(Document* d, const std::string& fname)
+LoadFileCommand::LoadFileCommand(FileHandlingVisitor* d, const std::string& fname)
 	: FileCommand(d)
 	, m_fname(fname)
 {
@@ -14,10 +14,10 @@ LoadFileCommand::LoadFileCommand(Document* d, const std::string& fname)
 
 void LoadFileCommand::execute()
 {
-	m_document->saveAs(m_fname);
+	m_fileHandling->loadFile(m_fname);
 }
 
-SaveAsCommand::SaveAsCommand(Document* d, const std::string& fname)
+SaveAsCommand::SaveAsCommand(FileHandlingVisitor* d, const std::string& fname)
 	: FileCommand(d)
 	, m_fname(fname)
 {
@@ -25,5 +25,5 @@ SaveAsCommand::SaveAsCommand(Document* d, const std::string& fname)
 
 void SaveAsCommand::execute()
 {
-	m_document->saveAs(m_fname);
+	m_fileHandling->saveAs(m_fname);
 }

@@ -8,12 +8,16 @@ class FileHandlingVisitor : public Visitor
 public:
 	FileHandlingVisitor();
 
-        void saveDocument();
-        void load(const std::string& strFileName);
+		void loadFile(const std::string& strFileName);
+		void saveAs(const std::string& strFileName);
 
-        void visitDot(const Dot* dot) override;
-        void visitCircle(const Circle* circle) override;
-        void visitRectangle(const Rectangle* rectangle) override;
+		void load(const Dot* dot) override;
+		void load(const Circle* circle) override;
+		void load(const Rectangle* rectangle) override;
+
+		void save(const Dot* dot) override;
+		void save(const Circle* circle) override;
+		void save(const Rectangle* rectangle) override;
 
 };
 

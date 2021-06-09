@@ -8,17 +8,14 @@
 class GraphicsView
 {
 public:
-    GraphicsView();
+	GraphicsView() = default;
     ushort width() const;
     ushort height() const;
     Rect graphicsRect() const;
+	virtual void drawItem(const GraphicsShape* shape);
     virtual void resize(const ushort width, const ushort height);
-	virtual void drawItems();
 private:
-    void timerStart(const ushort interval);
-private:
-    Rect m_graphicsRect;
-	std::vector<std::shared_ptr<GraphicsShape>> m_shapes;
+	Rect m_viewRect;
 };
 
 #endif // GRAPHICSVIEW_H

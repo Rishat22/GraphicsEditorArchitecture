@@ -13,8 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(project_sources
     main.cpp
     main_window.cpp
-    graphics_editor_controller.cpp
-    graphics_editor_model.cpp
+    graphics_controller.cpp
+    graphics_model.cpp
     graphics_view.cpp
     GraphicsShapes/graphics_shape.cpp
     GraphicsShapes/dot.cpp
