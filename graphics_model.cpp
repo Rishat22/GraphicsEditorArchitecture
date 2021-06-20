@@ -25,4 +25,12 @@ ushort GraphicsModel::itemsCount()
 	return m_shapes.size();
 }
 
-//ToDo move to this saving and loading file
+void GraphicsModel::loadFile(const std::string& fname)
+{
+	m_fileHandling.loadFile(fname);
+}
+
+void GraphicsModel::saveFile(const std::string& fname)
+{
+	m_fileHandling.saveAs(fname);
+}

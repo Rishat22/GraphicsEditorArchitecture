@@ -1,29 +1,29 @@
 #include "file_command.h"
 
 
-FileCommand::FileCommand(FileHandlingVisitor* d)
-	: m_fileHandling(d)
+FileCommand::FileCommand(const std::shared_ptr<GraphicsModel>& model)
+	: m_model(model)
 {
 }
 
-LoadFileCommand::LoadFileCommand(FileHandlingVisitor* d, const std::string& fname)
-	: FileCommand(d)
+LoadFileCommand::LoadFileCommand(const std::shared_ptr<GraphicsModel>& model, const std::string& fname)
+	: FileCommand(model)
 	, m_fname(fname)
 {
 }
 
 void LoadFileCommand::execute()
 {
-	m_fileHandling->loadFile(m_fname);
+	m_model->loadFile(m_fname);
 }
 
-SaveAsCommand::SaveAsCommand(FileHandlingVisitor* d, const std::string& fname)
-	: FileCommand(d)
+SaveAsCommand::SaveAsCommand(const std::shared_ptr<GraphicsModel>& model, const std::string& fname)
+	: FileCommand(model)
 	, m_fname(fname)
 {
 }
 
 void SaveAsCommand::execute()
 {
-	m_fileHandling->saveAs(m_fname);
+	m_model->saveFile(m_fname);
 }

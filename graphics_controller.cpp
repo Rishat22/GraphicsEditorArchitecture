@@ -7,6 +7,16 @@ GraphicsController::GraphicsController(const std::shared_ptr<GraphicsModel>& gra
 	m_graphicsView->SetModel(m_graphicsModel);
 }
 
+void GraphicsController::addShape(const std::shared_ptr<GraphicsShape>& shape)
+{
+	m_graphicsModel->addShape(shape);
+}
+
+void GraphicsController::removeShape(const std::shared_ptr<GraphicsShape>& shape)
+{
+	m_graphicsModel->removeShape(shape);
+}
+
 void GraphicsController::setGraphicsModel(const std::shared_ptr<GraphicsModel>& graphicsModel)
 {
 	m_graphicsModel = graphicsModel;

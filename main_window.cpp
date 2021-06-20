@@ -20,10 +20,10 @@ void MainWindow::doSomeCommands()
 	FileHandlingVisitor file_handling;
 	Commands commands;
 	commands.addCommand(
-		std::unique_ptr<ICommand>(new LoadFileCommand(&file_handling, "doc.txt"))
+		std::unique_ptr<ICommand>(new LoadFileCommand(m_graphicsModel, "doc.txt"))
 	);
 	commands.addCommand(
-		std::unique_ptr<ICommand>(new SaveAsCommand(&file_handling, "doc.txt"))
+		std::unique_ptr<ICommand>(new SaveAsCommand(m_graphicsModel, "doc.txt"))
 	);
 	/* ToDo add other commands */
 	commands.execute();

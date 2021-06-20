@@ -1,23 +1,22 @@
 #ifndef FILECOMMAND_H
 #define FILECOMMAND_H
 #include "commands.h"
-#include "../Data/file_handling_visitor.h"
+#include "../graphics_model.h"
 
 class FileCommand : public ICommand
 {
 public:
     virtual ~FileCommand() = default;
 protected:
-	FileCommand(FileHandlingVisitor* d);
+	FileCommand(const std::shared_ptr<GraphicsModel>& model);
 protected:
-    /* ToDo mb need use smart pointer */
-	FileHandlingVisitor* m_fileHandling;
+	std::shared_ptr<GraphicsModel> m_model;
 };
 
 class LoadFileCommand : public FileCommand
 {
 public:
-	LoadFileCommand(FileHandlingVisitor* d, const std::string& fname);
+	LoadFileCommand(const std::shared_ptr<GraphicsModel>& model, const std::string& fname);
 
     void execute() override;
 private:
@@ -27,7 +26,7 @@ private:
 class SaveAsCommand : public FileCommand
 {
 public:
-	SaveAsCommand(FileHandlingVisitor* d, const std::string& fname);
+	SaveAsCommand(const std::shared_ptr<GraphicsModel>& model, const std::string& fname);
     void execute() override;
 private:
     std::string m_fname;
