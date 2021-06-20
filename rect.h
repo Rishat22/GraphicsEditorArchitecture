@@ -1,6 +1,7 @@
 #ifndef RECT_H
 #define RECT_H
 #include <iostream>
+#include "point.h"
 
 class Rect
 {
@@ -20,8 +21,7 @@ public:
     void setHeight(const ushort& height);
 
 private:
-    ushort m_posX;
-    ushort m_posY;
+	Point m_pos;
     ushort m_width;
     ushort m_height;
 };

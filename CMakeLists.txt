@@ -25,6 +25,7 @@ set(project_sources
     Commands/file_command.cpp
     Commands/shape_command.cpp
     color.cpp
+    point.cpp
     rect.cpp
     )
 
