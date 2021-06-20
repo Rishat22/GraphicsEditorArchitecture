@@ -9,7 +9,8 @@ public:
     GraphicsController() = default;
 	GraphicsController(const std::shared_ptr<GraphicsModel>& graphicsModel, const std::shared_ptr<GraphicsView>& graphicsView);
 
-    void updateView();
+
+	/* ToDo add create and delete shapes */
 
     void setGraphicsModel(const std::shared_ptr<GraphicsModel>& graphicsModel);
     void setGraphicsView(const std::shared_ptr<GraphicsView>& graphicsView);

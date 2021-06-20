@@ -7,11 +7,6 @@ GraphicsController::GraphicsController(const std::shared_ptr<GraphicsModel>& gra
 	m_graphicsView->SetModel(m_graphicsModel);
 }
 
-void GraphicsController::updateView()
-{
-//	m_graphicsView->drawItems();
-}
-
 void GraphicsController::setGraphicsModel(const std::shared_ptr<GraphicsModel>& graphicsModel)
 {
 	m_graphicsModel = graphicsModel;
