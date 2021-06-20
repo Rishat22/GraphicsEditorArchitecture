@@ -1,6 +1,6 @@
 #include "graphics_controller.h"
 
-GraphicsController::GraphicsController(GraphicsModel* graphicsModel, GraphicsView* graphicsView)
+GraphicsController::GraphicsController(const std::shared_ptr<GraphicsModel>& graphicsModel, const std::shared_ptr<GraphicsView>& graphicsView)
 	:	m_graphicsModel(graphicsModel)
 	,	m_graphicsView(graphicsView)
 {

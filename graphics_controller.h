@@ -7,7 +7,7 @@ class GraphicsController
 {
 public:
     GraphicsController() = default;
-	GraphicsController(GraphicsModel* graphicsModel, GraphicsView* graphicsView);
+	GraphicsController(const std::shared_ptr<GraphicsModel>& graphicsModel, const std::shared_ptr<GraphicsView>& graphicsView);
 
     void updateView();
 

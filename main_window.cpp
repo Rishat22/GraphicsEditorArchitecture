@@ -4,6 +4,9 @@
 #include "Commands/file_command.h"
 
 MainWindow::MainWindow()
+	: m_graphicsView(std::make_shared<GraphicsView>())
+	, m_graphicsModel(std::make_shared<GraphicsModel>())
+	, m_graphicsController(std::make_shared<GraphicsController>(m_graphicsModel, m_graphicsView))
 {
 }
 
