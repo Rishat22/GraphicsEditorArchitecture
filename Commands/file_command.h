@@ -17,7 +17,7 @@ class LoadFileCommand : public FileCommand
 {
 public:
 	LoadFileCommand(const std::shared_ptr<GraphicsModel>& model, const std::string& fname);
-
+	virtual ~LoadFileCommand() = default;
     void execute() override;
 private:
     std::string m_fname;
@@ -27,7 +27,8 @@ class SaveAsCommand : public FileCommand
 {
 public:
 	SaveAsCommand(const std::shared_ptr<GraphicsModel>& model, const std::string& fname);
-    void execute() override;
+	virtual ~SaveAsCommand() = default;
+	void execute() override;
 private:
     std::string m_fname;
 };
