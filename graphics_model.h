@@ -7,11 +7,12 @@
 class GraphicsModel
 {
 public:
-    GraphicsModel();
-	virtual void drawItems();
+	GraphicsModel() = default;
+	void addShape(const std::shared_ptr<GraphicsShape>& shape);
+	void removeShape(const std::shared_ptr<GraphicsShape>& shape);
+	ushort itemsCount();
 private:
 	void timerStart(const ushort interval);
-
 private:
     std::vector<std::shared_ptr<GraphicsShape>> m_shapes;
 };

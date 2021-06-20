@@ -1,28 +1,23 @@
 #include "graphics_model.h"
-#include <thread>
+#include <algorithm>
 
-GraphicsModel::GraphicsModel()
+void GraphicsModel::addShape(const std::shared_ptr<GraphicsShape>& shape)
 {
-	const ushort time_freq_update = 60;
-	timerStart(time_freq_update);
-}
-void GraphicsModel::timerStart(const ushort interval)
-{
-	std::thread([this, interval]()
-	{
-		while (true)
-		{
-			drawItems();
-			std::this_thread::sleep_for(std::chrono::milliseconds(interval));
-		}
-	}).detach();
+	m_shapes.push_back(shape);
 }
 
-void GraphicsModel::drawItems()
+void GraphicsModel::removeShape(const std::shared_ptr<GraphicsShape>& shape)
 {
-	/* ToDo move to Model class */
-	for(const auto& shape : m_shapes)
+	const auto iter = std::find_if(m_shapes.begin(), m_shapes.end(), [&](std::shared_ptr<GraphicsShape> const& current)
 	{
-		shape->draw();
-	}
+			return current == shape;
+	});
+	m_shapes.emplace(iter);
 }
+
+ushort GraphicsModel::itemsCount()
+{
+	return m_shapes.size();
+}
+
+//ToDo move to this saving and loading file

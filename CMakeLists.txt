@@ -23,6 +23,7 @@ set(project_sources
     Data/file_handling_visitor.cpp
     Commands/commands.cpp
     Commands/file_command.cpp
+    Commands/shape_command.cpp
     color.cpp
     rect.cpp
     )

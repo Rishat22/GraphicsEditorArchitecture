@@ -16,6 +16,7 @@ void MainWindow::doSomeCommands()
 {
 	FileHandlingVisitor file_handling;
 	Commands commands;
+	//ToDo move to this saving and loading file
 	commands.addCommand(
 		std::unique_ptr<ICommand>(new LoadFileCommand(&file_handling, "doc.txt"))
 	);

@@ -1,13 +1,13 @@
 #ifndef GRAPHICSEDITORCONTROLLER_H
 #define GRAPHICSEDITORCONTROLLER_H
-#include "graphics_view.h"
 #include "graphics_model.h"
+#include "graphics_view.h"
 
 class GraphicsController
 {
 public:
     GraphicsController() = default;
-    GraphicsController(GraphicsModel* graphicsModel, GraphicsView* graphicsView);
+	GraphicsController(GraphicsModel* graphicsModel, GraphicsView* graphicsView);
 
     void updateView();
 

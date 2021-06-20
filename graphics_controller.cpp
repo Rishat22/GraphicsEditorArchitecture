@@ -4,7 +4,7 @@ GraphicsController::GraphicsController(GraphicsModel* graphicsModel, GraphicsVie
 	:	m_graphicsModel(graphicsModel)
 	,	m_graphicsView(graphicsView)
 {
-
+	m_graphicsView->SetModel(m_graphicsModel);
 }
 
 void GraphicsController::updateView()

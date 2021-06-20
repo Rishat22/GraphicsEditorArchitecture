@@ -4,17 +4,25 @@
 #include <memory>
 #include "rect.h"
 #include "GraphicsShapes/graphics_shape.h"
+#include "graphics_model.h"
 
 class GraphicsView
 {
 public:
-	GraphicsView() = default;
+	GraphicsView();
     ushort width() const;
     ushort height() const;
-    Rect graphicsRect() const;
-	virtual void drawItem(const GraphicsShape* shape);
+	Rect graphicsRect() const;
+	void SetModel(const std::shared_ptr<GraphicsModel>& model);
+//	void SetController(const std::shared_ptr<GraphicsController>& controller);
     virtual void resize(const ushort width, const ushort height);
+	virtual void drawItems();
 private:
+	void timerStart(const ushort interval);
+private:
+	//ToDO make week_ptr
+	std::shared_ptr<GraphicsModel> m_graphicsModel;
+//	std::shared_ptr<GraphicsController> m_graphicsController;
 	Rect m_viewRect;
 };
 
