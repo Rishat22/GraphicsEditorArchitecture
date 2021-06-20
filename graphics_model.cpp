@@ -15,6 +15,11 @@ void GraphicsModel::removeShape(const std::shared_ptr<GraphicsShape>& shape)
 	m_shapes.emplace(iter);
 }
 
+std::shared_ptr<GraphicsShape> GraphicsModel::GetShape(const ushort index)
+{
+	return m_shapes.at(index);
+}
+
 ushort GraphicsModel::itemsCount()
 {
 	return m_shapes.size();

@@ -10,6 +10,7 @@ public:
 	GraphicsModel() = default;
 	void addShape(const std::shared_ptr<GraphicsShape>& shape);
 	void removeShape(const std::shared_ptr<GraphicsShape>& shape);
+	std::shared_ptr<GraphicsShape> GetShape(const ushort index);
 	ushort itemsCount();
 private:
 	void timerStart(const ushort interval);

@@ -31,9 +31,13 @@ void GraphicsView::SetModel(const std::shared_ptr<GraphicsModel>& model)
 
 void GraphicsView::drawItems()
 {
-	for(auto shape_index = 0; shape_index < m_graphicsModel->itemsCount(); shape_index++)
+	auto graphicsModel = m_graphicsModel.lock();
+	if(!graphicsModel)
+		return;
+	for(auto shape_index = 0; shape_index < graphicsModel->itemsCount(); shape_index++)
 	{
-//		shape->draw();
+		auto shape = graphicsModel->GetShape(shape_index);
+		shape->draw();
 	}
 }
 

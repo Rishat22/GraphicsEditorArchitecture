@@ -20,8 +20,7 @@ public:
 private:
 	void timerStart(const ushort interval);
 private:
-	//ToDO make week_ptr
-	std::shared_ptr<GraphicsModel> m_graphicsModel;
+	std::weak_ptr<GraphicsModel> m_graphicsModel;
 //	std::shared_ptr<GraphicsController> m_graphicsController;
 	Rect m_viewRect;
 };
