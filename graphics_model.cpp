@@ -8,11 +8,9 @@ void GraphicsModel::addShape(const std::shared_ptr<GraphicsShape>& shape)
 
 void GraphicsModel::removeShape(const std::shared_ptr<GraphicsShape>& shape)
 {
-	const auto iter = std::find_if(m_shapes.begin(), m_shapes.end(), [&](std::shared_ptr<GraphicsShape> const& current)
-	{
-			return current == shape;
-	});
-	m_shapes.emplace(iter);
+	const auto iter = std::find(m_shapes.begin(), m_shapes.end(), shape);
+	if(iter != m_shapes.end())
+		m_shapes.emplace(iter);
 }
 
 std::shared_ptr<GraphicsShape> GraphicsModel::GetShape(const ushort index)
