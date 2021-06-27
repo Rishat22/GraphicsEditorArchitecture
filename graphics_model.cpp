@@ -28,9 +28,11 @@ ushort GraphicsModel::itemsCount()
 void GraphicsModel::loadFile(const std::string& fname)
 {
 	m_fileHandling.loadFile(fname);
+	m_shapes = m_fileHandling.getShapes();
 }
 
 void GraphicsModel::saveFile(const std::string& fname)
 {
+	m_fileHandling.setShapes(m_shapes);
 	m_fileHandling.saveAs(fname);
 }

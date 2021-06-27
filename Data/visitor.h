@@ -1,5 +1,6 @@
 #ifndef VISITOR_H
 #define VISITOR_H
+class GraphicsShape;
 class Dot;
 class Circle;
 class Rectangle;

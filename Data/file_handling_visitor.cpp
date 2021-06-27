@@ -13,14 +13,7 @@ FileHandlingVisitor::FileHandlingVisitor()
 void FileHandlingVisitor::loadFile(const std::string& strFileName)
 {
 	std::cout << "load file " << strFileName << std::endl;
-	std::vector< std::shared_ptr<GraphicsShape> > shapes
-	{
-		std::make_shared<Dot>(),
-		std::make_shared<Circle>(),
-		std::make_shared<Rectangle>(),
-
-	};
-	for(const auto& shape : shapes)
+	for(const auto& shape : m_shapes)
 	{
 		shape->load(this);
 	}
@@ -29,14 +22,7 @@ void FileHandlingVisitor::loadFile(const std::string& strFileName)
 void FileHandlingVisitor::saveAs(const std::string& strFileName)
 {
 	std::cout << "save file " << strFileName << std::endl;
-	std::vector< std::shared_ptr<GraphicsShape> > shapes
-	{
-		std::make_shared<Dot>(),
-		std::make_shared<Circle>(),
-		std::make_shared<Rectangle>(),
-
-	};
-	for(const auto& shape : shapes)
+	for(const auto& shape : m_shapes)
 	{
 		shape->save(this);
 	}
@@ -70,4 +56,14 @@ void FileHandlingVisitor::save(const Circle* /*circle*/)
 void FileHandlingVisitor::save(const Rectangle* /*rectangle*/)
 {
 
+}
+
+std::vector<std::shared_ptr<GraphicsShape> > FileHandlingVisitor::getShapes() const
+{
+	return m_shapes;
+}
+
+void FileHandlingVisitor::setShapes(const std::vector<std::shared_ptr<GraphicsShape> >& shapes)
+{
+	m_shapes = shapes;
 }
