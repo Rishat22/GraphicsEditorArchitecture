@@ -4,24 +4,22 @@
 #include <memory>
 #include "rect.h"
 #include "GraphicsShapes/graphics_shape.h"
-#include "graphics_model.h"
+#include "Observer.h"
 
-class GraphicsView
+class GraphicsModel;
+
+class GraphicsView : public Observer
 {
 public:
 	GraphicsView();
     ushort width() const;
     ushort height() const;
 	Rect graphicsRect() const;
-	void SetModel(const std::shared_ptr<GraphicsModel>& model);
-//	void SetController(const std::shared_ptr<GraphicsController>& controller);
     virtual void resize(const ushort width, const ushort height);
-	virtual void drawItems();
+	virtual void drawItems(std::vector<std::shared_ptr<GraphicsShape> >& shapes) override;
 private:
-	void timerStart(const ushort interval);
+//	void timerStart(const ushort interval);
 private:
-	std::weak_ptr<GraphicsModel> m_graphicsModel;
-//	std::shared_ptr<GraphicsController> m_graphicsController;
 	Rect m_viewRect;
 };
 

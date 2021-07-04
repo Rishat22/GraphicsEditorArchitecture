@@ -1,42 +1,29 @@
-#include "graphics_view.h"
 #include <thread>
+#include "graphics_model.h"
+#include "graphics_view.h"
 
 GraphicsView::GraphicsView()
 {
-	const ushort time_freq_update = 60;
-	timerStart(time_freq_update);
+//	const ushort time_freq_update = 60;
+//	timerStart(time_freq_update);
 }
 
-void GraphicsView::timerStart(const ushort interval)
-{
-	std::thread([this, interval]()
-	{
-		while (true)
-		{
-			drawItems();
-			std::this_thread::sleep_for(std::chrono::milliseconds(interval));
-		}
-	}).detach();
-}
-
-void GraphicsView::SetModel(const std::shared_ptr<GraphicsModel>& model)
-{
-	m_graphicsModel = model;
-}
-
-//void GraphicsView::SetController(const std::shared_ptr<GraphicsController>& controller)
+//void GraphicsView::timerStart(const ushort interval)
 //{
-//	m_graphicsController = controller;
+//	std::thread([this, interval]()
+//	{
+//		while (true)
+//		{
+//			drawItems();
+//			std::this_thread::sleep_for(std::chrono::milliseconds(interval));
+//		}
+//	}).detach();
 //}
 
-void GraphicsView::drawItems()
+void GraphicsView::drawItems(std::vector<std::shared_ptr<GraphicsShape> >& shapes)
 {
-	auto graphicsModel = m_graphicsModel.lock();
-	if(!graphicsModel)
-		return;
-	for(auto shape_index = 0; shape_index < graphicsModel->itemsCount(); shape_index++)
+	for(const auto &shape : shapes)
 	{
-		auto shape = graphicsModel->GetShape(shape_index);
 		shape->draw();
 	}
 }

@@ -4,7 +4,6 @@ GraphicsController::GraphicsController(const std::shared_ptr<GraphicsModel>& gra
 	:	m_graphicsModel(graphicsModel)
 	,	m_graphicsView(graphicsView)
 {
-	m_graphicsView->SetModel(m_graphicsModel);
 }
 
 void GraphicsController::addShape(const std::shared_ptr<GraphicsShape>& shape)

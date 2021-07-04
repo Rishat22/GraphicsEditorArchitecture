@@ -11,6 +11,7 @@ MainWindow::MainWindow()
 	, m_graphicsModel(std::make_shared<GraphicsModel>())
 	, m_graphicsController(std::make_shared<GraphicsController>(m_graphicsModel, m_graphicsView))
 {
+	m_graphicsModel->setView(m_graphicsView);
 }
 
 void MainWindow::show()
