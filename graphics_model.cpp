@@ -22,7 +22,7 @@ void GraphicsModel::removeShape(const std::shared_ptr<GraphicsShape>& shape)
 
 void GraphicsModel::notify()
 {
-	for (auto wGraphicsView : m_graphicsViews) {
+	for (const auto& wGraphicsView : m_graphicsViews) {
 		auto graphicsView = wGraphicsView.lock();
 		if(!graphicsView)
 			continue; // or erase
